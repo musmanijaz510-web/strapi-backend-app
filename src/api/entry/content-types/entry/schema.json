@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "entries",
+  "info": {
+    "singularName": "entry",
+    "pluralName": "entries",
+    "displayName": "Entry",
+    "description": "Public entries synced with Supabase"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "timestamp": {
+      "type": "datetime",
+      "required": true,
+      "default": {
+        "currentTimestamp": true
+      }
+    }
+  }
+}
+
