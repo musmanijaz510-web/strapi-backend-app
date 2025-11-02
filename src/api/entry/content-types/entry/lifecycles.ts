@@ -1,4 +1,11 @@
 export default {
+  async beforeCreate(event) {
+    const data = event?.params?.data || {};
+    if (!data.timestamp) {
+      data.timestamp = new Date().toISOString();
+      event.params.data = data;
+    }
+  },
   async afterCreate(event) {
     const { result } = event;
     const payload = {
