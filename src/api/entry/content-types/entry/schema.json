@@ -23,10 +23,14 @@
       "required": true
     },
     "supabase_id": {
-      "type": "string"
+      "type": "string",
+      "configurable": false,
+      "visible": false
     },
     "origin": {
-      "type": "string"
+      "type": "string",
+      "configurable": false,
+      "visible": false
     }
   }
 }
