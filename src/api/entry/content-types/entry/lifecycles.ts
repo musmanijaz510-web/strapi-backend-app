@@ -15,11 +15,20 @@ export default {
     };
 
     const edgeUrl = process.env.SUPABASE_EDGE_FUNCTION_URL;
+    const functionAuthKey =
+      process.env.SUPABASE_FUNCTION_ANON_KEY || process.env.SUPABASE_ANON_KEY;
     if (edgeUrl && payload.title) {
       // Fire-and-forget: send to Supabase Edge Function to insert
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+      };
+      if (functionAuthKey) {
+        headers["Authorization"] = `Bearer ${functionAuthKey}`;
+        headers["apikey"] = functionAuthKey;
+      }
       fetch(edgeUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify({
           title: payload.title,
           description: payload.description,
