@@ -21,6 +21,12 @@
     "timestamp": {
       "type": "datetime",
       "required": true
+    },
+    "supabase_id": {
+      "type": "string"
+    },
+    "origin": {
+      "type": "string"
     }
   }
 }
